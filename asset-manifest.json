@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/metadata-crosswalk-visualizer/static/css/main.e6c13ad2.css",
+    "main.js": "/metadata-crosswalk-visualizer/static/js/main.4dc455e6.js",
+    "static/js/453.ed562da9.chunk.js": "/metadata-crosswalk-visualizer/static/js/453.ed562da9.chunk.js",
+    "index.html": "/metadata-crosswalk-visualizer/index.html",
+    "main.e6c13ad2.css.map": "/metadata-crosswalk-visualizer/static/css/main.e6c13ad2.css.map",
+    "main.4dc455e6.js.map": "/metadata-crosswalk-visualizer/static/js/main.4dc455e6.js.map",
+    "453.ed562da9.chunk.js.map": "/metadata-crosswalk-visualizer/static/js/453.ed562da9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.4dc455e6.js"
+  ]
+}
