@@ -1,23 +1,23 @@
 import { useState, useEffect, useRef } from "react";
 
 const C = {
-  // 5 core brand colours
-  dark: "#1C1616",       // Coffee Bean — darkest surface, primary text
-  mid: "#262630",        // Shadow Grey — header, secondary dark surface
-  primary: "#2C374D",    // Twilight Indigo — interactive, links, focus
-  accent: "#9F6B32",     // Golden Earth — highlights, CTAs, active states
-  surface: "#FAFAF7",    // Warm White — light content surface
-  // Derived (from core 5 only)
-  card: "#FFFFFF",
-  textBody: "#4A4A48",   // dark at 70% presence
-  textMuted: "#8A8A86",  // dark at 45% presence
-  border: "#E5E2DC",     // surface darkened slightly
+  // Brand palette v1.2
+  dark:      "#1a0905",  // Coffee-bean — The Ink / body text
+  mid:       "#2e1008",  // Coffee-bean darkened — header surfaces
+  primary:   "#4c050d",  // Night-bordeaux — interactive, links, focus
+  accent:    "#94b1c8",  // Powder-blue — highlights, CTAs, active states
+  surface:   "#e3dfce",  // Bone — The Canvas / light content surface
+  // Derived
+  card:      "#ede9d8",  // Bone lighter — card backgrounds
+  textBody:  "#5c4840",  // Warm muted mid-tone
+  textMuted: "#8c7a70",  // Light warm muted — captions
+  border:    "#d6d1be",  // Bone-dk — borders
   // Functional semantics (data visualisation, not brand)
-  exact: "#4A7C59",
-  partial: "#9F6B32",    // same as accent — intentional
-  lossy: "#8B2E2A",
-  noMatch: "#8A8A86",    // same as textMuted
-  espresso: "#532623",   // for real-world examples accent
+  exact:     "#4A7C59",
+  partial:   "#94b1c8",  // powder-blue — intentional parallel to accent
+  lossy:     "#8B2E2A",
+  noMatch:   "#8c7a70",  // same as textMuted
+  espresso:  "#532623",  // real-world examples accent
 };
 
 const MATCH = {
@@ -1445,15 +1445,15 @@ const CONCEPTS = [
    NEUMORPHIC SHADOWS
    ========================================================================= */
 const NEU = {
-  raised: "6px 6px 14px rgba(174,168,158,0.3), -6px -6px 14px rgba(255,255,255,0.8)",
-  raisedSm: "3px 3px 8px rgba(174,168,158,0.25), -3px -3px 8px rgba(255,255,255,0.7)",
-  raisedHover: "8px 8px 20px rgba(174,168,158,0.35), -8px -8px 20px rgba(255,255,255,0.9)",
-  inset: "inset 3px 3px 7px rgba(174,168,158,0.3), inset -3px -3px 7px rgba(255,255,255,0.75)",
-  insetDeep: "inset 4px 4px 10px rgba(174,168,158,0.35), inset -4px -4px 10px rgba(255,255,255,0.8)",
-  darkRaised: "5px 5px 12px rgba(0,0,0,0.5), -5px -5px 12px rgba(50,42,42,0.35)",
-  darkRaisedSm: "3px 3px 7px rgba(0,0,0,0.45), -3px -3px 7px rgba(50,42,42,0.3)",
-  darkInset: "inset 3px 3px 7px rgba(0,0,0,0.5), inset -3px -3px 7px rgba(50,42,42,0.3)",
-  darkInsetDeep: "inset 4px 4px 10px rgba(0,0,0,0.55), inset -4px -4px 10px rgba(50,42,42,0.35)",
+  raised:       "6px 6px 14px rgba(180,174,155,0.35), -6px -6px 14px rgba(255,255,255,0.75)",
+  raisedSm:     "3px 3px 8px rgba(180,174,155,0.28), -3px -3px 8px rgba(255,255,255,0.65)",
+  raisedHover:  "8px 8px 20px rgba(180,174,155,0.40), -8px -8px 20px rgba(255,255,255,0.85)",
+  inset:        "inset 3px 3px 7px rgba(180,174,155,0.32), inset -3px -3px 7px rgba(255,255,255,0.70)",
+  insetDeep:    "inset 4px 4px 10px rgba(180,174,155,0.38), inset -4px -4px 10px rgba(255,255,255,0.75)",
+  darkRaised:   "5px 5px 12px rgba(0,0,0,0.5), -5px -5px 12px rgba(26,9,5,0.35)",
+  darkRaisedSm: "3px 3px 7px rgba(0,0,0,0.45), -3px -3px 7px rgba(26,9,5,0.30)",
+  darkInset:    "inset 3px 3px 7px rgba(0,0,0,0.5), inset -3px -3px 7px rgba(26,9,5,0.30)",
+  darkInsetDeep:"inset 4px 4px 10px rgba(0,0,0,0.55), inset -4px -4px 10px rgba(26,9,5,0.35)",
 };
 
 /* =========================================================================
@@ -1516,7 +1516,7 @@ const MatchBadge = ({ type, small }) => {
       display: "inline-flex", alignItems: "center", gap: small ? 4 : 6,
       padding: small ? "3px 10px" : "5px 14px", borderRadius: 100,
       fontSize: small ? 10 : 11,
-      fontFamily: "'Montserrat', sans-serif", fontWeight: 600,
+      fontFamily: "'Roboto Flex', sans-serif", fontWeight: 600,
       letterSpacing: "0.04em", textTransform: "uppercase",
       color: m.color, background: C.surface, boxShadow: NEU.raisedSm,
     }}>
@@ -1533,16 +1533,16 @@ const SubfieldList = ({ items, type }) => {
       <div style={{
         fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase",
         fontWeight: 700, color: C.textMuted, marginBottom: 10,
-        fontFamily: "'Montserrat', sans-serif",
+        fontFamily: "'Roboto Flex', sans-serif",
       }}>{label}</div>
       <div style={{ borderRadius: 12, overflow: "hidden", boxShadow: NEU.inset, background: C.surface, padding: 4 }}>
         {items.map((item, i) => (
           <div key={i} style={{
             display: "flex", gap: 12, padding: "9px 16px", fontSize: 12.5,
-            fontFamily: "'Montserrat', sans-serif", lineHeight: 1.6, alignItems: "baseline",
+            fontFamily: "'Roboto Flex', sans-serif", lineHeight: 1.6, alignItems: "baseline",
           }}>
             <span style={{
-              fontFamily: "'Courier New', monospace", fontSize: 12,
+              fontFamily: "'IBM Plex Mono', 'Courier New', monospace", fontSize: 12,
               color: C.accent, fontWeight: 700,
               minWidth: type === "indicators" ? 60 : 80, flexShrink: 0, whiteSpace: "nowrap",
             }}>{item.code || item.pos || "\u2014"}</span>
@@ -1563,7 +1563,7 @@ const InfoCard = ({ accentColor, label, children }) => (
   <div style={{
     padding: "22px 26px", margin: "14px 0", borderRadius: 16,
     background: C.surface, boxShadow: NEU.raised,
-    fontFamily: "'Montserrat', sans-serif", fontSize: 13, lineHeight: 1.7,
+    fontFamily: "'Roboto Flex', sans-serif", fontSize: 13, lineHeight: 1.7,
     borderLeft: `4px solid ${accentColor}`,
   }}>
     <div style={{
@@ -1598,7 +1598,7 @@ const ClassificationPanel = ({ systems }) => {
         <InfoCard key={key} accentColor={C.accent} label={sys.label}>
           <div style={{ color: C.dark, marginBottom: 10 }}>{sys.note}</div>
           <span style={{
-            fontFamily: "'Courier New', monospace", fontSize: 12, color: C.accent,
+            fontFamily: "'IBM Plex Mono', 'Courier New', monospace", fontSize: 12, color: C.accent,
             background: C.surface, padding: "6px 12px", borderRadius: 8,
             display: "inline-block", boxShadow: NEU.inset,
           }}>{sys.example}</span>
@@ -1627,7 +1627,7 @@ const MappingCard = ({ standard, mapping, isMobile }) => {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, flexWrap: "wrap", gap: 8 }}>
         <div style={{
           fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase",
-          fontWeight: 700, color: C.textMuted, fontFamily: "'Montserrat', sans-serif",
+          fontWeight: 700, color: C.textMuted, fontFamily: "'Roboto Flex', sans-serif",
         }}>
           {standard.label} <span style={{ fontWeight: 400, color: C.textMuted + "88" }}>{"\u00b7"} {standard.sub}</span>
         </div>
@@ -1647,14 +1647,14 @@ const MappingCard = ({ standard, mapping, isMobile }) => {
         </div>
       </div>
       <div style={{
-        fontFamily: "'Courier New', monospace", fontSize: isMobile ? 12.5 : 14.5,
+        fontFamily: "'IBM Plex Mono', 'Courier New', monospace", fontSize: isMobile ? 12.5 : 14.5,
         color: C.dark, fontWeight: 700, lineHeight: 1.4, marginBottom: 14,
         padding: isMobile ? "8px 12px" : "10px 16px",
         background: C.surface, borderRadius: 10, boxShadow: NEU.inset,
         overflowX: "auto",
       }}>{mapping.field}</div>
       <div style={{
-        fontFamily: "'Montserrat', sans-serif", fontSize: 13, lineHeight: 1.7, color: C.textBody,
+        fontFamily: "'Roboto Flex', sans-serif", fontSize: 13, lineHeight: 1.7, color: C.textBody,
       }}>{mapping.note}</div>
       {expanded && (
         <div style={{ marginTop: 20 }}>
@@ -1689,13 +1689,13 @@ const CrosswalkTable = ({ sourceId, targetId, isMobile }) => {
               padding: 20, borderRadius: 16, background: C.surface, boxShadow: NEU.raised,
             }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-                <span style={{ fontWeight: 700, color: C.dark, fontSize: 14, fontFamily: "'Montserrat', sans-serif" }}>{concept.label}</span>
+                <span style={{ fontWeight: 700, color: C.dark, fontSize: 14, fontFamily: "'Roboto Flex', sans-serif" }}>{concept.label}</span>
                 <MatchBadge type={worstMatch} small />
               </div>
-              <div style={{ fontSize: 11, color: C.textMuted, fontFamily: "'Montserrat', sans-serif", marginBottom: 6, fontWeight: 600 }}>{source.label}</div>
-              <div style={{ fontFamily: "'Courier New', monospace", fontSize: 12, color: C.primary, fontWeight: 600, marginBottom: 12 }}>{sm.field.split(" - ")[0]}</div>
-              <div style={{ fontSize: 11, color: C.textMuted, fontFamily: "'Montserrat', sans-serif", marginBottom: 6, fontWeight: 600 }}>{target.label}</div>
-              <div style={{ fontFamily: "'Courier New', monospace", fontSize: 12, color: C.primary, fontWeight: 600 }}>{tm.field.split(" - ")[0]}</div>
+              <div style={{ fontSize: 11, color: C.textMuted, fontFamily: "'Roboto Flex', sans-serif", marginBottom: 6, fontWeight: 600 }}>{source.label}</div>
+              <div style={{ fontFamily: "'IBM Plex Mono', 'Courier New', monospace", fontSize: 12, color: C.primary, fontWeight: 600, marginBottom: 12 }}>{sm.field.split(" - ")[0]}</div>
+              <div style={{ fontSize: 11, color: C.textMuted, fontFamily: "'Roboto Flex', sans-serif", marginBottom: 6, fontWeight: 600 }}>{target.label}</div>
+              <div style={{ fontFamily: "'IBM Plex Mono', 'Courier New', monospace", fontSize: 12, color: C.primary, fontWeight: 600 }}>{tm.field.split(" - ")[0]}</div>
             </div>
           );
         })}
@@ -1709,7 +1709,7 @@ const CrosswalkTable = ({ sourceId, targetId, isMobile }) => {
         display: "grid", gridTemplateColumns: "150px 1fr 100px 1fr",
         background: C.mid, color: C.card, padding: "14px 24px", fontSize: 10,
         fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
-        fontFamily: "'Montserrat', sans-serif",
+        fontFamily: "'Roboto Flex', sans-serif",
       }}>
         <span>Concept</span><span>{source.label}</span>
         <span style={{ textAlign: "center" }}>Match</span><span>{target.label}</span>
@@ -1722,19 +1722,19 @@ const CrosswalkTable = ({ sourceId, targetId, isMobile }) => {
         return (
           <div key={concept.id} style={{
             display: "grid", gridTemplateColumns: "150px 1fr 100px 1fr",
-            padding: "14px 24px", fontSize: 13, fontFamily: "'Montserrat', sans-serif",
+            padding: "14px 24px", fontSize: 13, fontFamily: "'Roboto Flex', sans-serif",
             background: C.surface, borderBottom: `1px solid ${C.border}`, alignItems: "center",
           }}>
             <span style={{ fontWeight: 600, color: C.dark, fontSize: 12 }}>{concept.label}</span>
-            <span style={{ fontFamily: "'Courier New', monospace", fontSize: 12, color: C.primary, fontWeight: 600 }}>{sm.field.split(" - ")[0]}</span>
+            <span style={{ fontFamily: "'IBM Plex Mono', 'Courier New', monospace", fontSize: 12, color: C.primary, fontWeight: 600 }}>{sm.field.split(" - ")[0]}</span>
             <span style={{ textAlign: "center" }}><MatchBadge type={worstMatch} small /></span>
-            <span style={{ fontFamily: "'Courier New', monospace", fontSize: 12, color: C.primary, fontWeight: 600 }}>{tm.field.split(" - ")[0]}</span>
+            <span style={{ fontFamily: "'IBM Plex Mono', 'Courier New', monospace", fontSize: 12, color: C.primary, fontWeight: 600 }}>{tm.field.split(" - ")[0]}</span>
           </div>
         );
       })}
       <div style={{
         padding: "18px 24px", background: C.accent + "12", fontSize: 12,
-        color: C.textBody, fontFamily: "'Montserrat', sans-serif",
+        color: C.textBody, fontFamily: "'Roboto Flex', sans-serif",
       }}>
         <span style={{ fontWeight: 700, color: C.espresso }}>Data loss: </span>
         {(() => {
@@ -1758,7 +1758,7 @@ const SearchResults = ({ query, onNavigate, isMobile }) => {
 
   if (results.length === 0) {
     return (
-      <div style={{ padding: "60px 20px", textAlign: "center", fontFamily: "'Montserrat', sans-serif", color: C.textMuted }}>
+      <div style={{ padding: "60px 20px", textAlign: "center", fontFamily: "'Roboto Flex', sans-serif", color: C.textMuted }}>
         <div style={{ width: 56, height: 56, borderRadius: 16, margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 24, background: C.surface, boxShadow: NEU.insetDeep }}>?</div>
         <div style={{ fontSize: 14 }}>No fields matching "{query}"</div>
         <div style={{ fontSize: 12, marginTop: 8, color: C.textMuted + "88" }}>Try a field number (245, 650), subfield ($a), or keyword</div>
@@ -1771,25 +1771,25 @@ const SearchResults = ({ query, onNavigate, isMobile }) => {
 
   return (
     <div>
-      <div style={{ fontSize: 12, color: C.textMuted, marginBottom: 24, fontFamily: "'Montserrat', sans-serif" }}>
+      <div style={{ fontSize: 12, color: C.textMuted, marginBottom: 24, fontFamily: "'Roboto Flex', sans-serif" }}>
         {results.length} result{results.length !== 1 ? "s" : ""} for "{query}"
       </div>
       {Object.entries(grouped).map(([id, group]) => (
         <div key={id} style={{ marginBottom: 28 }}>
           <div onClick={() => onNavigate(id)} style={{
-            fontFamily: "'Noto Serif Display', Georgia, serif", fontSize: 18, fontWeight: 600,
+            fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 18, fontWeight: 600,
             color: C.primary, marginBottom: 14, cursor: "pointer",
-          }}>{group.label} <span style={{ fontSize: 12, fontFamily: "'Montserrat', sans-serif", color: C.textMuted, fontWeight: 400 }}>{"\u2192"} view all</span></div>
+          }}>{group.label} <span style={{ fontSize: 12, fontFamily: "'Roboto Flex', sans-serif", color: C.textMuted, fontWeight: 400 }}>{"\u2192"} view all</span></div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {group.items.map((item, i) => (
               <div key={i} style={{
                 display: "flex", alignItems: "center", gap: isMobile ? 10 : 16,
                 padding: isMobile ? "12px 16px" : "14px 22px",
                 background: C.surface, borderRadius: 14, boxShadow: NEU.raisedSm,
-                fontFamily: "'Montserrat', sans-serif", fontSize: 13, flexWrap: isMobile ? "wrap" : "nowrap",
+                fontFamily: "'Roboto Flex', sans-serif", fontSize: 13, flexWrap: isMobile ? "wrap" : "nowrap",
               }}>
                 <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: C.textMuted, minWidth: 80 }}>{item.standardLabel}</span>
-                <span style={{ fontFamily: "'Courier New', monospace", fontSize: 12, color: C.dark, fontWeight: 600, flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis" }}>{item.field}</span>
+                <span style={{ fontFamily: "'IBM Plex Mono', 'Courier New', monospace", fontSize: 12, color: C.dark, fontWeight: 600, flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis" }}>{item.field}</span>
                 <MatchBadge type={item.match} small />
               </div>
             ))}
@@ -1809,21 +1809,21 @@ const IntroSection = ({ onStart, isMobile }) => (
     background: C.surface, maxWidth: 800,
   }}>
     <div style={{
-      fontFamily: "'Noto Serif Display', Georgia, serif",
+      fontFamily: "'Cormorant Garamond', Georgia, serif",
       fontSize: isMobile ? 26 : 34, fontWeight: 600, color: C.dark,
       lineHeight: 1.2, marginBottom: 20,
     }}>
       Navigate the spaces between metadata standards
     </div>
     <div style={{
-      fontFamily: "'Montserrat', sans-serif", fontSize: 14,
+      fontFamily: "'Roboto Flex', sans-serif", fontSize: 14,
       color: C.textBody, lineHeight: 1.8, marginBottom: 28, maxWidth: 600,
     }}>
       This tool maps how bibliographic concepts translate between UNIMARC, MARC 21, Dublin Core, RDA, and BIBFRAME 2.0. It shows exactly where data is preserved, degraded, or lost during conversions, with practical system notes from Koha and Libris XL environments.
     </div>
 
     <div style={{
-      fontFamily: "'Montserrat', sans-serif", fontSize: 13,
+      fontFamily: "'Roboto Flex', sans-serif", fontSize: 13,
       color: C.textBody, lineHeight: 1.8, marginBottom: 32,
     }}>
       Built for catalogers planning system migrations, metadata librarians working across standards, LIS students learning how bibliographic frameworks relate, and anyone who has wondered why information disappears when records move between systems.
@@ -1833,7 +1833,7 @@ const IntroSection = ({ onStart, isMobile }) => (
       <button onClick={onStart} style={{
         padding: "12px 28px", borderRadius: 14, border: "none",
         background: C.surface, boxShadow: NEU.raised,
-        fontFamily: "'Montserrat', sans-serif", fontSize: 13,
+        fontFamily: "'Roboto Flex', sans-serif", fontSize: 13,
         fontWeight: 700, color: C.primary, cursor: "pointer",
         transition: "all 0.2s ease",
       }}
@@ -1851,9 +1851,9 @@ const IntroSection = ({ onStart, isMobile }) => (
       <div style={{
         fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase",
         fontWeight: 700, color: C.accent, marginBottom: 12,
-        fontFamily: "'Montserrat', sans-serif",
+        fontFamily: "'Roboto Flex', sans-serif",
       }}>Methodology & Sources</div>
-      <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 13, color: C.textBody, lineHeight: 1.8 }}>
+      <div style={{ fontFamily: "'Roboto Flex', sans-serif", fontSize: 13, color: C.textBody, lineHeight: 1.8 }}>
         Field mappings are based on official crosswalk documentation from the Library of Congress, IFLA, and the DCMI, cross-referenced with professional cataloging experience across UNIMARC and MARC 21 environments in Portugal and Sweden. System-specific notes reflect direct experience with Koha (open-source ILS) and Libris XL (KB Sweden's national library system). RDA mappings follow the current RDA Toolkit. All match quality assessments (exact, partial, lossy, no equivalent) indicate the degree of semantic preservation during conversion.
       </div>
     </div>
@@ -1870,7 +1870,7 @@ const IntroSection = ({ onStart, isMobile }) => (
           padding: "12px 16px", borderRadius: 12,
           background: C.surface, boxShadow: NEU.raisedSm,
           textDecoration: "none", transition: "all 0.2s ease",
-          fontFamily: "'Montserrat', sans-serif",
+          fontFamily: "'Roboto Flex', sans-serif",
         }}
           onMouseEnter={(e) => e.currentTarget.style.boxShadow = NEU.inset}
           onMouseLeave={(e) => e.currentTarget.style.boxShadow = NEU.raisedSm}
@@ -1934,7 +1934,7 @@ export default function MetadataCrosswalkVisualizer() {
         width: "calc(100% - 32px)", margin: "4px 16px", padding: "10px 14px",
         border: "none", borderRadius: 12, background: C.dark,
         boxShadow: active ? NEU.darkInset : NEU.darkRaisedSm,
-        cursor: "pointer", fontFamily: "'Montserrat', sans-serif", fontSize: 13,
+        cursor: "pointer", fontFamily: "'Roboto Flex', sans-serif", fontSize: 13,
         color: active ? C.accent : "#9A9A96",
         fontWeight: active ? 600 : 400, textAlign: "left", transition: "all 0.25s ease",
       }}>
@@ -1958,7 +1958,7 @@ export default function MetadataCrosswalkVisualizer() {
       <button onClick={() => setShowSection(tab.key)} style={{
         padding: isMobile ? "8px 14px" : "10px 20px", border: "none", borderRadius: 12,
         background: C.surface, boxShadow: active ? NEU.inset : NEU.raisedSm,
-        fontFamily: "'Montserrat', sans-serif", fontSize: isMobile ? 11 : 12,
+        fontFamily: "'Roboto Flex', sans-serif", fontSize: isMobile ? 11 : 12,
         fontWeight: active ? 700 : 400, color: active ? C.primary : C.textMuted,
         cursor: "pointer", transition: "all 0.2s ease",
         display: "flex", alignItems: "center", gap: 6,
@@ -1972,11 +1972,11 @@ export default function MetadataCrosswalkVisualizer() {
   /* ── Select box ── */
   const Sel = ({ value, onChange, options, label }) => (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-      <span style={{ fontSize: 9, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 700, color: C.textMuted, fontFamily: "'Montserrat', sans-serif" }}>{label}</span>
+      <span style={{ fontSize: 9, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 700, color: C.textMuted, fontFamily: "'Roboto Flex', sans-serif" }}>{label}</span>
       <select value={value} onChange={(e) => onChange(e.target.value)} style={{
         padding: "10px 16px", borderRadius: 12, border: "none",
         background: C.surface, boxShadow: NEU.inset,
-        fontFamily: "'Montserrat', sans-serif", fontSize: 13,
+        fontFamily: "'Roboto Flex', sans-serif", fontSize: 13,
         color: C.dark, fontWeight: 600, cursor: "pointer", outline: "none",
       }}>
         {options.map(o => <option key={o.id} value={o.id}>{o.label}</option>)}
@@ -2010,8 +2010,8 @@ export default function MetadataCrosswalkVisualizer() {
   );
 
   return (
-    <div style={{ fontFamily: "'Montserrat', sans-serif", background: C.surface, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <div style={{ fontFamily: "'Roboto Flex', sans-serif", background: C.surface, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      {/* Fonts loaded via index.html — Cormorant Garamond · IBM Plex Mono · Roboto Flex */}
 
       {/* ── HEADER ── */}
       <header style={{ background: C.mid, color: C.card, padding: isMobile ? "20px" : "28px 40px" }}>
@@ -2029,7 +2029,7 @@ export default function MetadataCrosswalkVisualizer() {
               )}
               <div>
                 <div style={{
-                  fontFamily: "'Noto Serif Display', Georgia, serif",
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
                   fontSize: isMobile ? 18 : 26, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 2,
                 }}>Metadata Crosswalk Visualizer</div>
                 {!isMobile && (
@@ -2048,7 +2048,7 @@ export default function MetadataCrosswalkVisualizer() {
                   style={{
                     width: "100%", padding: "10px 16px 10px 38px", borderRadius: 14, border: "none",
                     background: C.mid, color: C.card, boxShadow: NEU.darkInsetDeep,
-                    fontFamily: "'Montserrat', sans-serif", fontSize: 13, outline: "none",
+                    fontFamily: "'Roboto Flex', sans-serif", fontSize: 13, outline: "none",
                   }}
                 />
                 <span style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", fontSize: 14, opacity: 0.3, color: C.card }}>{"\u2315"}</span>
@@ -2074,7 +2074,7 @@ export default function MetadataCrosswalkVisualizer() {
                       borderRadius: i === 0 ? "10px 0 0 10px" : "0 10px 10px 0",
                       background: C.mid, boxShadow: active ? NEU.darkInset : NEU.darkRaisedSm,
                       color: active ? C.accent : "#9A9A96",
-                      fontFamily: "'Montserrat', sans-serif", fontSize: 11, fontWeight: active ? 700 : 500,
+                      fontFamily: "'Roboto Flex', sans-serif", fontSize: 11, fontWeight: active ? 700 : 500,
                       letterSpacing: "0.04em", cursor: "pointer", transition: "all 0.2s ease",
                     }}>{mode.label}</button>
                   );
@@ -2082,7 +2082,7 @@ export default function MetadataCrosswalkVisualizer() {
                 <button onClick={() => setViewMode("intro")} style={{
                   padding: "8px 14px", border: "none", borderRadius: "0 0 0 0",
                   background: C.mid, boxShadow: NEU.darkRaisedSm, marginLeft: 8, borderRadius: 10,
-                  color: "#9A9A96", fontFamily: "'Montserrat', sans-serif", fontSize: 11,
+                  color: "#9A9A96", fontFamily: "'Roboto Flex', sans-serif", fontSize: 11,
                   fontWeight: 500, cursor: "pointer", letterSpacing: "0.04em",
                 }}>About</button>
               </div>
@@ -2139,7 +2139,7 @@ export default function MetadataCrosswalkVisualizer() {
 
           {viewMode === "crosswalk" && (
             <div>
-              <div style={{ fontFamily: "'Noto Serif Display', Georgia, serif", fontSize: isMobile ? 22 : 26, fontWeight: 600, color: C.dark, marginBottom: 8 }}>
+              <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: isMobile ? 22 : 26, fontWeight: 600, color: C.dark, marginBottom: 8 }}>
                 Source {"\u2192"} Target Crosswalk
               </div>
               <div style={{ fontSize: 13, color: C.textMuted, marginBottom: 28, lineHeight: 1.5 }}>
@@ -2164,7 +2164,7 @@ export default function MetadataCrosswalkVisualizer() {
             <>
               <div style={{ marginBottom: 32, display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12 }}>
                 <div>
-                  <div style={{ fontFamily: "'Noto Serif Display', Georgia, serif", fontSize: isMobile ? 24 : 30, fontWeight: 600, color: C.dark, letterSpacing: "-0.01em", marginBottom: 6 }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: isMobile ? 24 : 30, fontWeight: 600, color: C.dark, letterSpacing: "-0.01em", marginBottom: 6 }}>
                     {concept.label}
                   </div>
                   <div style={{ fontSize: 13, color: C.textMuted, lineHeight: 1.5 }}>
@@ -2175,7 +2175,7 @@ export default function MetadataCrosswalkVisualizer() {
                   target="_blank" rel="noopener noreferrer" style={{
                     display: "inline-flex", alignItems: "center", gap: 6, padding: "9px 16px", borderRadius: 12,
                     border: "none", background: C.surface, boxShadow: NEU.raisedSm,
-                    fontFamily: "'Montserrat', sans-serif", fontSize: 11, color: C.textMuted,
+                    fontFamily: "'Roboto Flex', sans-serif", fontSize: 11, color: C.textMuted,
                     textDecoration: "none", fontWeight: 600, whiteSpace: "nowrap",
                   }}
                   onMouseEnter={(e) => { e.currentTarget.style.boxShadow = NEU.inset; e.currentTarget.style.color = C.primary; }}
@@ -2218,7 +2218,7 @@ export default function MetadataCrosswalkVisualizer() {
       {/* ── FOOTER ── */}
       <footer style={{
         padding: isMobile ? "16px 20px" : "20px 40px", background: C.dark,
-        textAlign: "center", fontFamily: "'Montserrat', sans-serif",
+        textAlign: "center", fontFamily: "'Roboto Flex', sans-serif",
         fontSize: 12, color: "#7A7A76", borderTop: `1px solid ${C.mid}`,
       }}>
         Built by <span style={{ color: C.accent, fontWeight: 700 }}>Luzia Verdasca Antunes</span>
