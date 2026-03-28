@@ -1,0 +1,23 @@
+/* Brand tokens v1.2 */
+:root {
+  --c-bone:      #e3dfce;
+  --c-coffee:    #1a0905;
+  --c-bordeaux:  #4c050d;
+  --c-powder:    #94b1c8;
+  --f-display:   'Cormorant Garamond', Georgia, serif;
+  --f-mono:      'IBM Plex Mono', 'Courier New', monospace;
+  --f-sans:      'Roboto Flex', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto Flex', 'Helvetica Neue', Arial, system-ui, sans-serif;
+  background-color: #e3dfce;
+  color: #1a0905;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'IBM Plex Mono', 'Courier New', Consolas, monospace;
+}

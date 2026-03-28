@@ -1,0 +1,32 @@
+/* Coolors Exported Palette - https://coolors.co/1c1616-262630-2c374d-444943-9f6b32-532623 */
+
+- CSV
+
+1c1616,262630,2c374d,444943,9f6b32,532623
+
+- With #
+
+#1c1616, #262630, #2c374d, #444943, #9f6b32, #532623
+
+- Array
+
+["1c1616","262630","2c374d","444943","9f6b32","532623"]
+
+- Object
+
+{"Coffee Bean":"1c1616","Shadow Grey":"262630","Twilight Indigo":"2c374d","Charcoal Brown":"444943","Golden Earth":"9f6b32","Espresso":"532623"}
+
+- Extended Array
+
+[{"name":"Coffee Bean","hex":"1c1616","rgb":[28,22,22],"cmyk":[0,21,21,89],"hsb":[0,21,11],"hsl":[0,12,10],"lab":[8,3,1]},{"name":"Shadow Grey","hex":"262630","rgb":[38,38,48],"cmyk":[21,21,0,81],"hsb":[240,21,19],"hsl":[240,12,17],"lab":[16,3,-7]},{"name":"Twilight Indigo","hex":"2c374d","rgb":[44,55,77],"cmyk":[43,29,0,70],"hsb":[220,43,30],"hsl":[220,27,24],"lab":[23,2,-15]},{"name":"Charcoal Brown","hex":"444943","rgb":[68,73,67],"cmyk":[7,0,8,71],"hsb":[110,8,29],"hsl":[110,4,27],"lab":[30,-3,3]},{"name":"Golden Earth","hex":"9f6b32","rgb":[159,107,50],"cmyk":[0,33,69,38],"hsb":[31,69,62],"hsl":[31,52,41],"lab":[50,15,39]},{"name":"Espresso","hex":"532623","rgb":[83,38,35],"cmyk":[0,54,58,67],"hsb":[4,58,33],"hsl":[4,41,23],"lab":[21,21,12]}]
+
+- XML
+
+<palette>
+  <color name="Coffee Bean" hex="1c1616" r="28" g="22" b="22" />
+  <color name="Shadow Grey" hex="262630" r="38" g="38" b="48" />
+  <color name="Twilight Indigo" hex="2c374d" r="44" g="55" b="77" />
+  <color name="Charcoal Brown" hex="444943" r="68" g="73" b="67" />
+  <color name="Golden Earth" hex="9f6b32" r="159" g="107" b="50" />
+  <color name="Espresso" hex="532623" r="83" g="38" b="35" />
+</palette>
