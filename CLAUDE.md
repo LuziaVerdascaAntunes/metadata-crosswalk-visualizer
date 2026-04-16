@@ -13,13 +13,20 @@ This portfolio should feel distinctive and memorable — not generic. When using
 
 ## Stack
 
-<!-- Update these to match your actual setup -->
-- Framework: React
-- Styling: [CSS Modules / Tailwind / styled-components]
-- Animation: [Motion / Framer Motion / CSS only]
+- Framework: React 18 + Vite 6
+- Styling: Plain CSS with CSS custom properties; shared brand token palette (bone `#e3dfce`, coffee `#1a0905`, bordeaux `#4c050d`, powder `#94b1c8`)
+- Animation: CSS animations; no external animation library
 
 ## Conventions
 
 - Keep components modular and reusable
 - Use CSS variables for all design tokens (colors, spacing, typography)
 - Animate intentionally — one well-orchestrated effect beats scattered micro-interactions
+
+## Git Workflow
+
+- Never work directly on main
+- At the start of every session, check which branch is active
+- If on main, create a new branch before making any changes
+- Suggest a descriptive branch name and ask for confirmation before creating it
+- Examples: crosswalk-updates, schema-mapping, ui-improvements, fix-export
