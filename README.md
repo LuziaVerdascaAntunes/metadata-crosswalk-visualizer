@@ -79,3 +79,13 @@ This tool assumes familiarity with bibliographic standards and is intentionally 
 - Designed to be embedded in a larger React app or deployed as a static site
 
 The main implementation lives in a single component file:
+
+---
+
+## Built by
+
+**Luzia Verdasca Antunes** — Information Specialist & Metadata Expert based in Malmö, Sweden.
+
+This tool is part of a broader set of open resources for library metadata and cataloguing practice. For context on the work behind it — metadata consulting, library systems migration, authority control, and AI in cataloguing — see [luziaverdascaantunes.com/information/](https://luziaverdascaantunes.com/information/).
+
+Tool page: [luziaverdascaantunes.com/tools/metadata-crosswalk-visualizer/](https://luziaverdascaantunes.com/tools/metadata-crosswalk-visualizer/)
