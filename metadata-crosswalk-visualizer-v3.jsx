@@ -2,17 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import { CONCEPTS } from "./crosswalk-data.js";
 
 const C = {
-  // Brand palette v1.2
-  dark:      "#1a0905",  // Coffee-bean — The Ink / body text
-  mid:       "#2e1008",  // Coffee-bean darkened — header surfaces
-  primary:   "#4c050d",  // Night-bordeaux — interactive, links, focus
-  accent:    "#94b1c8",  // Powder-blue — highlights, CTAs, active states
-  surface:   "#e3dfce",  // Bone — The Canvas / light content surface
+  // Unified Brand Spec — "Archive Aesthetic" (2026-06-24, canonical)
+  dark:      "#1a0905",  // Coffee Bean — The Ink / body text
+  mid:       "#2e1008",  // Coffee Bean darkened — header surfaces
+  primary:   "#4c050d",  // Night Bordeaux — The Stamp / interactive, links, CTA
+  accent:    "#94b1c8",  // Powder Blue — The Folder / data, highlights (not text)
+  surface:   "#f1ede4",  // Soft Linen — The Canvas / background
   // Derived
-  card:      "#ede9d8",  // Bone lighter — card backgrounds
-  textBody:  "#5c4840",  // Warm muted mid-tone
-  textMuted: "#8c7a70",  // Light warm muted — captions
-  border:    "#d6d1be",  // Bone-dk — borders
+  card:      "#f7f4ec",  // Soft Linen lifted — card backgrounds
+  textBody:  "#5c4840",  // Muted Brown — secondary / body text
+  textMuted: "#8c7a70",  // Muted Brown lightened — captions
+  border:    "#d6d1be",  // Linen Dark — borders / alt sections
   // Functional semantics (data visualisation, not brand)
   exact:     "#4A7C59",
   partial:   "#94b1c8",  // powder-blue — intentional parallel to accent
@@ -46,9 +46,9 @@ const CLASSIFICATIONS = [
 
 
 /* =========================================================================
-   COLOUR SYSTEM — 5 core + functional semantics
-   Core: Coffee Bean, Shadow Grey, Twilight, Golden Earth, Warm White
-   Everything else derived via opacity or slight adjustment
+   COLOUR SYSTEM — Unified Brand Spec "Archive Aesthetic" (see C above)
+   Soft Linen · Coffee Bean · Night Bordeaux · Powder Blue · Linen Dark ·
+   Muted Brown — plus functional data-viz semantics. Derived via slight tints.
    ========================================================================= */
 
 
@@ -546,13 +546,13 @@ export default function MetadataCrosswalkVisualizer() {
         border: "none", borderRadius: 12, background: C.dark,
         boxShadow: active ? NEU.darkInset : NEU.darkRaisedSm,
         cursor: "pointer", fontFamily: "'Roboto Flex', sans-serif", fontSize: 13,
-        color: active ? C.accent : "#9A9A96",
+        color: active ? C.accent : C.textMuted,
         fontWeight: active ? 600 : 400, textAlign: "left", transition: "all 0.25s ease",
       }}>
         <span style={{
           width: 28, height: 28, borderRadius: 8,
           background: active ? C.accent : C.dark,
-          color: active ? C.dark : "#7A7A76",
+          color: active ? C.dark : C.textMuted,
           display: "flex", alignItems: "center", justifyContent: "center",
           fontSize: 10, fontWeight: 800, flexShrink: 0,
           boxShadow: active ? NEU.darkInset : NEU.darkRaisedSm,
@@ -644,7 +644,7 @@ export default function MetadataCrosswalkVisualizer() {
                   fontSize: isMobile ? 18 : 26, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 2,
                 }}>Metadata Crosswalk Visualizer</div>
                 {!isMobile && (
-                  <div style={{ fontSize: 12, color: "#9A9A96", lineHeight: 1.5 }}>
+                  <div style={{ fontSize: 12, color: C.textMuted, lineHeight: 1.5 }}>
                     UNIMARC {"\u00b7"} MARC 21 {"\u00b7"} Dublin Core {"\u00b7"} RDA {"\u00b7"} BIBFRAME 2.0
                   </div>
                 )}
@@ -666,7 +666,7 @@ export default function MetadataCrosswalkVisualizer() {
                 {searchQuery && (
                   <button onClick={() => { setSearchQuery(""); setViewMode("explore"); }} style={{
                     position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)",
-                    background: "none", border: "none", color: "#9A9A96", cursor: "pointer", fontSize: 16,
+                    background: "none", border: "none", color: C.textMuted, cursor: "pointer", fontSize: 16,
                   }}>{"\u00d7"}</button>
                 )}
               </div>
@@ -684,7 +684,7 @@ export default function MetadataCrosswalkVisualizer() {
                       padding: "8px 18px", border: "none",
                       borderRadius: i === 0 ? "10px 0 0 10px" : "0 10px 10px 0",
                       background: C.mid, boxShadow: active ? NEU.darkInset : NEU.darkRaisedSm,
-                      color: active ? C.accent : "#9A9A96",
+                      color: active ? C.accent : C.textMuted,
                       fontFamily: "'Roboto Flex', sans-serif", fontSize: 11, fontWeight: active ? 700 : 500,
                       letterSpacing: "0.04em", cursor: "pointer", transition: "all 0.2s ease",
                     }}>{mode.label}</button>
@@ -693,7 +693,7 @@ export default function MetadataCrosswalkVisualizer() {
                 <button onClick={() => setViewMode("intro")} style={{
                   padding: "8px 14px", border: "none", borderRadius: "0 0 0 0",
                   background: C.mid, boxShadow: NEU.darkRaisedSm, marginLeft: 8, borderRadius: 10,
-                  color: "#9A9A96", fontFamily: "'Roboto Flex', sans-serif", fontSize: 11,
+                  color: C.textMuted, fontFamily: "'Roboto Flex', sans-serif", fontSize: 11,
                   fontWeight: 500, cursor: "pointer", letterSpacing: "0.04em",
                 }}>About</button>
               </div>
@@ -830,7 +830,7 @@ export default function MetadataCrosswalkVisualizer() {
       <footer style={{
         padding: isMobile ? "16px 20px" : "20px 40px", background: C.dark,
         textAlign: "center", fontFamily: "'Roboto Flex', sans-serif",
-        fontSize: 12, color: "#7A7A76", borderTop: `1px solid ${C.mid}`,
+        fontSize: 12, color: C.textMuted, borderTop: `1px solid ${C.mid}`,
       }}>
         Built by <span style={{ color: C.accent, fontWeight: 700 }}>Luzia Verdasca Antunes</span>
         {" "}{"\u2014"} Metadata Specialist {"\u00b7"} 20 years across UNIMARC & MARC 21 {"\u00b7"}{" "}
